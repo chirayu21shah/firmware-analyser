@@ -1,6 +1,0 @@
-File Path,Token,Occurrences
-nested/file1.txt,<Tkn435JFIRKTkn>,22
-sample_firmware/firmware/config.txt,<Tkn435JFIRKTkn>,1
-sample_firmware/firmware/logs/log1.txt,<Tkn123ABCDETkn>,2
-sample_firmware/firmware/logs/log1.txt,<Tkn134ABCDETkn>,3
-sample_firmware/firmware/logs/log1.txt,<Tkn435JFIRKTkn>,7
