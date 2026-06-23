@@ -1,6 +1,8 @@
 import pytest
 from app import create_app
 
+from app.services.analyser import analyze_file, analyze_firmware
+
 
 @pytest.fixture
 def client():
@@ -70,3 +72,18 @@ def test_analyse_job_not_found(client):
 
     assert responce.status_code == 404
     assert responce.get_json() == {'error': 'Job not found'}
+
+def test_analyze_file(tmp_path):
+    file_path = tmp_path/ "sample.txt"
+    file_path.write_text(
+        "hello <Tkn123ABCDETkn> world <Tkn123ABCDETkn>\n"
+        "other <Tkn999ZZZZZTkn>\n",
+        encoding="utf-8",
+    )
+
+    result = analyze_file(str(file_path))
+
+    assert result == {
+        "<Tkn123ABCDETkn>": 2,
+        "<Tkn999ZZZZZTkn>": 1,
+    }

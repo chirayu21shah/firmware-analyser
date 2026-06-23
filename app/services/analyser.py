@@ -31,7 +31,6 @@ def analyze_file(file_path) -> dict[str, int]:
 def analyze_firmware(directory_path, csv_output_path) -> dict[str, dict[str, int]]:
     file_paths = []
     # csv coulmn will be path, token, occurences
-
     for root, dirs, files in os.walk(directory_path):
         for file in files:
             file_path = os.path.join(root, file)
